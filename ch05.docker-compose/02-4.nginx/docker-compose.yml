@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+    server:
+        image: nginx                    # docker image pull nginx
+        container_name: mynginx         # --name mynginx
+        ports:
+            - 8000:80                   # -p 8080:80
+        volumes:
+            - .:/usr/share/nginx/html   # -v :/usr/share/nginx/html
+            
+            

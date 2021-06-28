@@ -1,0 +1,31 @@
+version: "3.8"      # docker engine release 19.03.0+ version
+
+services:
+    redis:
+        image: redis:alpine
+        # container_name: redis
+        networks:
+           - network1
+        volumes:
+          - redis_data:/data
+        restart: always
+    server:
+        # depends_on:
+          # - redis
+        build: ./moby-counter
+        image: moby-counter
+        networks:
+          - network1
+        ports:
+            - "8080:80"
+        restart: always
+    
+volumes:
+    redis_data:
+        name: redis_data
+    
+networks:
+    network1:
+        name: mynet1
+        
+        

@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+    web:
+        # image: 127.0.0.1:5000/mycluster
+        image: educafe/mycluster
+        build: .
+        ports:
+            - "8000:8000"
+        deploy:
+            replicas: 3
+       
+    redis:
+        image: redis:alpine
+    
+    

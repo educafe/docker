@@ -1,0 +1,30 @@
+version: "3.9"      # docker engine release 19.03+ version
+
+services:
+    redis:
+        image: redis:alpine             # image pull redis:alpine
+        container_name: myredis         # --name myredis
+        volumes: 
+            - redis_data:/data          # -v redis_data:/data
+        restart: always                 # --restart=always
+        networks:
+            - mynetwork
+    
+    server:
+        depends_on:
+         - redis
+        image: educafe/moby-counter     # image pull educafe/moby-counter
+        container_name: myserver        # --name myserver
+        ports: 
+            - "8080:80"                 # -p 8080:80
+        restart: always                 # --restart=always
+        networks:
+            - mynetwork
+        
+volumes:
+    redis_data: 
+        name: redis_data                # -v ./redis_data:/data
+        
+networks:
+    mynetwork: 
+        name: mynet                     # --network mynet

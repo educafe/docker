@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+    web:
+        # image: 127.0.0.1:5000/mycluster
+        image: educafe/mycluster
+        build: .
+        ports:
+            - "8000:8000"
+        deploy:
+            replicas: 6
+            restart_policy:
+                condition: on-failure
+            placement:
+                constraints:
+                    - node.role==worker
+    redis:
+        image: redis:alpine
+    
+    

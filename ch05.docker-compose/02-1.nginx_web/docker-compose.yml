@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+    app:
+        build: app
+        container_name: myapp
+        networks: 
+            - mynetwork
+    nginx:
+        container_name: mynginx
+        build: nginx
+        ports:
+            - 8080:80
+        depends_on:
+           - app
+        networks: 
+            - mynetwork
+networks:
+    mynetwork:
+        name: mynet
+           
+           

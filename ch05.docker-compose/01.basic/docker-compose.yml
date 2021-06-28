@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+    app:
+        build: .
+        # image: myapp:v1
+        # container_name: mycontainer

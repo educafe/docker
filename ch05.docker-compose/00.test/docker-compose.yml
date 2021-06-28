@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+    myapp:
+        image: alpine
+        container_name: myalpine
+        volumes:
+            - .:/app
+        stdin_open: true
+        tty: true
+        command: ash
+        restart: always
+        
+        
