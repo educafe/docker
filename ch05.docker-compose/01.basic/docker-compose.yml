@@ -1,0 +1,17 @@
+version: '3.8'
+name: lab
+services:
+  mycontainer:
+    build: .
+    image: myimage
+    deploy:
+      replicas: 3
+    networks:
+      - mybridge
+networks:
+  mybridge:
+    # driver: bridge
+    # ipam:
+      # config:
+        # - subnet: 192.168.214.0/24
+

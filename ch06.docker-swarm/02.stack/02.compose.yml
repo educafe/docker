@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  web:
+    image: educafe/mycluster
+    build: .
+    ports:
+      - "8000:8000"
+    deploy:
+      replicas: 6
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints:
+          - node.role==worker
+  redis:
+    image: redis:alpine
+  
+    

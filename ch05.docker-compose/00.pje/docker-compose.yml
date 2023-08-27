@@ -1,0 +1,11 @@
+version: '3.8'
+name: pje
+services:
+  mycontainer:
+    build: .
+    image: myimage
+    volumes:
+    - ./:/app           #bind mount
+    deploy:
+      replicas: 3
+        

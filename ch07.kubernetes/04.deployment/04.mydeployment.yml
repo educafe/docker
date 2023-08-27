@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: write
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: write
+        image: educafe/myimage:v2
+        volumeMounts:
+        - name: shared
+          mountPath: /app
+
+      volumes:
+      - name: shared
+        hostPath:
+          path: /home/educafe
+
+      terminationGracePeriodSeconds: 0

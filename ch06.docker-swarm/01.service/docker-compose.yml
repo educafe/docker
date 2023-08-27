@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    image: educafe/myswarm:ncia
+    build: .
+    deploy:
+      replicas: 3
+    networks:
+      - myoverlay
+networks:
+  myoverlay:
+    # driver: overlay
+    ipam:
+      config:
+        - subnet: 192.168.214.0/24

@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: myjob
+spec:
+  completions: 3
+  template:
+    spec:
+      containers:
+      - name: job
+        image: busybox
+        command: ['sh', '-c']
+        args: ['echo "Hello, Kubernetes!"; sleep 5']
+      restartPolicy: OnFailure
+

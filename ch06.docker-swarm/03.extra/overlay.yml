@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+    myapp:
+        image: alpine
+        stdin_open: true
+        tty: true
+        # ports:
+            # - "80:80"
+        command: ash
+        deploy:
+            replicas: 3
+            restart_policy:
+                condition: on-failure
+            placement:
+                constraints:
+                    - node.role == worker

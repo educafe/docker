@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep
+spec:
+  selector:
+    matchLabels:
+      run: mynginx
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: mynginx
+    spec:
+      containers:
+      - name: mynginx
+        image: educafe/mynginx
+        ports:
+        - containerPort: 80
+

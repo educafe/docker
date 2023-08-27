@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeploy
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: myshell
+  template:
+    metadata:
+      labels:
+        app: myshell
+    spec:
+      containers:
+      - name: mycontainer
+        image: educafe/myshell:v1
+        imagePullPolicy: Always
+      # command: ["/bin/sh", "-c", "./version1.sh]
+      terminationGracePeriodSeconds: 0

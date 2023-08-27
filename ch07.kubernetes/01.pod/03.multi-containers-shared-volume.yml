@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod2
+spec:
+  volumes:
+  - name: shared
+    emptyDir: {}
+  containers:
+  - name: read-container
+    image: nginx
+    volumeMounts:
+      - name: shared
+        mountPath: /usr/share/nginx/html
+  - name: write-container
+    image: ubuntu
+    volumeMounts:
+    - name: shared
+      mountPath: /web
+    command: ["/bin/sh", "-c"]
+    args:
+      - while true; do
+          echo "I am writing -- at [$(date +%T)]" > /web/index.html;
+          sleep 3;
+        done
+        
+  terminationGracePeriodSeconds: 0
+      
+        

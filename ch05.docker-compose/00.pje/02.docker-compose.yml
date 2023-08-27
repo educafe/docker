@@ -1,0 +1,15 @@
+version: '3.8'
+name: pje
+services:
+  mycontainer:
+    build: .
+    image: myimage
+    stdin_open: true
+    tty: true
+    # entrypoint: /bin/bash
+    volumes:
+    - /mnt/web:/app         # bind mount
+    deploy:
+      replicas: 3
+        
+        

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+  - name: nginx-pod
+    image: nginx:latest
+    ports:
+    - containerPort: 80
+      protocol: TCP
+
+  - name: myubuntu
+    image: educafe/myubuntu:utils
+    command: ["tail"]
+    args: ["-f", "/dev/null"] 
+  
+  terminationGracePeriodSeconds: 0
+
+

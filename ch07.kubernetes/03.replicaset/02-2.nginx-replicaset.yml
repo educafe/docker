@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx-pod-rs
+  labels:
+    role: webserver 
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      role: webserver 
+  template:
+    metadata:
+      labels:
+        role: webserver 
+    spec:
+      containers:
+        - name: mynginx-container
+          image: nginx:latest
+         
+         
+
+

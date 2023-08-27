@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  web:
+    image: educafe/mycluster
+    ports:
+      - "8000:8000"
+    deploy:
+        replicas: 3
+  redis:
+    image: redis:alpine
+    
+    

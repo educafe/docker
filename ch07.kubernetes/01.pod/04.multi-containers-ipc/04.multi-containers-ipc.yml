@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+  - name: producer
+    image: educafe/mc-ipc
+    command: ["./ipc", "-producer"]
+  
+  - name: consumer
+    image: educafe/mc-ipc
+    command: ["./ipc", "-consumer"]
+  restartPolicy: Never
+   
+  terminationGracePeriodSeconds: 0      
+        

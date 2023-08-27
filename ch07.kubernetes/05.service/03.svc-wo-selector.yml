@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-wo-selector
+spec:
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 80  # port number another pod in another deployment
+      
+# The service without selector doesn't know which pod to connect or where to connec.
+# Therefore, it requires to define endpoint that could be an external ip with port #, or 
+# internal container or pod with IP and port #
+# In this example, it uses internal container that is created by another deployment 
+# kubectl apply -f env03.mc-deploy.yml
+# Another way of understanding, endpoint could be the pod that are deployed using deployment.  

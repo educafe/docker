@@ -1,0 +1,22 @@
+version: '3.9'
+name: lab
+services:
+  myapp:
+    build: app
+    image: myapp
+    networks:
+    - mybridge
+  nginx:
+    build: nginx
+    image: mynginx
+    ports:
+      - 8080:80
+    depends_on:
+      - myapp
+    networks:
+      - mybridge
+    
+networks:
+  mybridge:
+           
+           

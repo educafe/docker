@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysts
+spec:
+  serviceName: "svc-headless"
+  selector:
+    matchLabels:
+      run: mynginx
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: mynginx
+    spec:
+      containers:
+      - name: mynginx
+        image: educafe/mynginx
+        ports:
+        - containerPort: 80
+

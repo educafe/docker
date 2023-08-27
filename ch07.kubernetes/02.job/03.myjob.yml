@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: myjob
+spec:
+  parallelism: 3
+  template:
+    spec:
+      containers:
+      - name: job
+        image: busybox
+        command: ['sh', '-c']
+        args: ['echo "Hello, Kubernetes!"; sleep $(shuf -i 5-10 -n 1)']
+      restartPolicy: OnFailure
+

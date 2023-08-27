@@ -1,0 +1,15 @@
+# version: '3.9'
+name: mysrv
+services:
+    myapp:
+        build: app
+        deploy:
+            replicas: 3
+    nginx:
+        build: nginx
+        ports:
+            - 8080:80
+        depends_on:
+           - myapp
+           
+           
