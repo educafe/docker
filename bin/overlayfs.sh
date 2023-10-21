@@ -30,7 +30,12 @@ do
 	tput setaf 4
 	echo ${image}
 	tput setaf 0
-	echo $(cat ${image}/lower)
+	# echo $(cat ${image}/lower)
+	for var in $(cat ${image}/lower)
+	do
+		echo -n "$var -> "
+		readlink $var | cut -d'/' -f2
+	done
 	echo
 done
 
