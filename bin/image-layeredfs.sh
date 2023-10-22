@@ -7,17 +7,17 @@ do
 		do
 			if [ -f /var/lib/docker/overlay2/$image/lower ]; then
 				tput setaf 4
-				docker image ls | grep $imageid | awk '{print $1}'
+				docker image ls | grep $imageid | awk '{print $1 ":" $2}'
 				echo UpperDir=$image
 				tput setaf 0
-				echo LowerDir=
 				IFS=:
 				for var in $(cat /var/lib/docker/overlay2/$image/lower)
 				do
-					readlink $var | cut -d '/' -f2
+					readlink /var/lib/docker/overlay2/$var | cut -d '/' -f2
 				done
 			else
 				tput setaf 4
+				docker image ls | grep $imageid | awk '{print $1 ":" $2}'
 				echo UpperDir=$image
 				tput setaf 0
 			fi
