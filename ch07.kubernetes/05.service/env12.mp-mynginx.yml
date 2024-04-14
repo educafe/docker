@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: mp-nginx
+    labels:
+        app: mp-nginx
+spec:
+    containers:
+    -   name: nginx
+        image: nginx:latest
+        ports:
+        -   containerPort: 80
+        volumeMounts:
+        -   name: nginx-proxy-config
+            mountPath: /etc/nginx/nginx.conf
+            subPath: nginx.conf
+    volumes:
+    -   name: nginx-proxy-config
+        configMap:
+            name: myconfig
+            
+    terminationGracePeriodSeconds: 0
+      

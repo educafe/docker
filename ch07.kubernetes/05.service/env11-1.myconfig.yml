@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: myconfig
+data:
+    nginx.conf: |-
+
+        events {
+        }
+
+        http {
+            upstream myapp {
+                server svc-clusterip1:80;
+            }
+
+            server {
+                listen 80;
+                location / {
+                    proxy_pass         http://myapp;
+                    proxy_redirect     off;
+                }
+            }
+        }
+    
+
+      

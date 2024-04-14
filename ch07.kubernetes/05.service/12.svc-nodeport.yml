@@ -4,12 +4,11 @@ metadata:
   name: svc-nodeport
 spec:
   type: NodePort
-  clusterIP: 10.96.1.101
   ports:
   - port: 8080
     protocol: TCP
     nodePort: 30010
     targetPort: 80
   selector:
-    educafe: mynginx
+    app: mp-nginx
 

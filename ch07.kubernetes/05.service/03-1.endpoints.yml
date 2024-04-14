@@ -4,7 +4,7 @@ metadata:
   name: svc-wo-selector
 subsets:
   - addresses:
-      - ip: 10.244.2.3  #ip address of myapp pod
+      - ip: 10.244.2.2  #ip address of myapp pod
     ports:
       - port: 80  # port number for myapp container
       

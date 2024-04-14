@@ -6,7 +6,7 @@ spec:
   type: ClusterIP
   clusterIP: None
   selector:
-    run: mynginx 
+    educafe: mynginx 
   ports:
     - name: http
       port: 8080

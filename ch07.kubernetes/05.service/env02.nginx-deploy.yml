@@ -5,12 +5,12 @@ metadata:
 spec:
   selector:
     matchLabels:
-      run: mynginx
+      educafe: mynginx
   replicas: 2
   template:
     metadata:
       labels:
-        run: mynginx
+        educafe: mynginx
     spec:
       containers:
       - name: mynginx

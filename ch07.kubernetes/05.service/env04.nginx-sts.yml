@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: mysts
+  name: sts-nginx
 spec:
-  serviceName: "svc-headless"
+  serviceName: "sts-headless"
   selector:
     matchLabels:
-      run: mynginx
+      sts: mynginx
   replicas: 2
   template:
     metadata:
       labels:
-        run: mynginx
+        sts: mynginx
     spec:
       containers:
       - name: mynginx

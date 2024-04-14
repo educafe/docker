@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-dep
+spec:
+  selector:
+    matchLabels:
+      app: mp-nginx
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: mp-nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        -   containerPort: 80
+        volumeMounts:
+        -   name: nginx-proxy-config
+            mountPath: /etc/nginx/nginx.conf
+            subPath: nginx.conf
+      volumes:
+      -   name: nginx-proxy-config
+          configMap:
+            name: myconfig
+
+      terminationGracePeriodSeconds: 0

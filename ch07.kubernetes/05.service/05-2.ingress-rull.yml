@@ -10,21 +10,21 @@ spec:
   - host: "educafe.example.com"
     http:
       paths:
-      - path: /hello/?(.*)
+      - path: /manual/?(.*)
         pathType: Prefix
         backend:
           service:
-            name: svc1-nginx
+            name: svc-wo-selector
             port:
               number: 80
-      - path: /world/?(.*)
+      - path: /headless/?(.*)
         pathType: Prefix
         backend:
           service:
-            name: svc2-nginx
+            name: sts-headless
             port:
               number: 80
-      - path: /myapp/?(.*)
+      - path: /cluster/?(.*)
         pathType: Prefix
         backend:
           service:

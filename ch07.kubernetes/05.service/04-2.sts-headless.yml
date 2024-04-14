@@ -1,11 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: svc-loadbalancer
+  name: sts-headless
 spec:
-  type: LoadBalancer
+  type: ClusterIP
+  clusterIP: None
   selector:
-    run: mynginx 
+    sts: mynginx 
   ports:
     - name: http
       port: 8080
