@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Pod
 metadata:
-    name: mp-nginx
+    name: env11-sp-nginx
     labels:
-        app: mp-nginx
+        app: sp-nginx
 spec:
     containers:
     -   name: nginx
@@ -17,7 +17,7 @@ spec:
     volumes:
     -   name: nginx-proxy-config
         configMap:
-            name: myconfig
+            name: nginx-sp-proxy-config
             
     terminationGracePeriodSeconds: 0
       

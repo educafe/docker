@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-    name: myconfig
+    name: nginx-sp-proxy-config
 data:
     nginx.conf: |-
 
@@ -10,7 +10,8 @@ data:
 
         http {
             upstream myapp {
-                server svc-clusterip1:80;
+                # server 10.244.2.45:5000;
+                server svc-backend-sp:80;
             }
 
             server {

@@ -1,13 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: svc-nodeport
+  name: svc-frontend-mp
 spec:
-  type: NodePort
+  type: ClusterIP
+  clusterIP: 10.96.1.201
   ports:
-  - port: 8080
-    protocol: TCP
-    nodePort: 30010
+  - port: 80
     targetPort: 80
   selector:
     app: mp-nginx

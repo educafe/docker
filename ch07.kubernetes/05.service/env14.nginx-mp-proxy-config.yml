@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-    name: myconfig
+    name: nginx-mp-proxy-config
 data:
     nginx.conf: |-
 
@@ -10,7 +10,7 @@ data:
 
         http {
             upstream myapp {
-                server 10.244.1.13:5000;
+                server svc-backend-mp:80;
             }
 
             server {

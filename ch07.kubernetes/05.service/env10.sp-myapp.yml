@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Pod
 metadata:
-    name: mp-myapp
+    name: env10-sp-myapp
     labels:
-        app: mp-myapp
+      app: sp-myapp
 spec:
     containers:
     -   name: myapp

@@ -4,14 +4,9 @@ metadata:
   name: svc-wo-selector
 subsets:
   - addresses:
-      - ip: 192.168.1.7  #ip address of docker201016
+      - ip: 192.168.1.6   # ip of one of nodes
+      # - ip: 10.96.1.203   # ip address of service
     ports:
-      - port: 8080  # port number for container running on docker201016
+      - port: 30010         # port number of nodeport service
+      # - port: 80              # port number of a service
       
-# 본 실습에서의 endpoint는 클러스터 외부에 있는 도커 호스트에서 실행중인 컨테이너에 접속하는 것.
-# docker201016의 도커 호스트에서 nginx 컨테이너를 실행한 후 index.html을 수정한 후
-# 해당 컨테이너에 접근하는 url을 endpoint로 설정한다
-# docker run --rm -d --name mycontainer -p 8080:80 nginx
-# docker exec -it mycontainer bash
-# echo "I am $(uname -n) at $(hostname -I)" > /usr/share/nginx/html/index.html/index
-# Kubernetes master에서 curl 192.168.118.19:8080 으로 접속

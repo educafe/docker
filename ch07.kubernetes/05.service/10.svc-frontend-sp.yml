@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: svc-clusterip
+  name: svc-frontend-sp
 spec:
   type: ClusterIP
-  clusterIP: 10.96.1.100
+  clusterIP: 10.96.1.200
   ports:
   - port: 80
     targetPort: 80
   selector:
-    app: mp-nginx
+    app: sp-nginx
 

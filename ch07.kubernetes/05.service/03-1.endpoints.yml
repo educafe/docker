@@ -4,9 +4,9 @@ metadata:
   name: svc-wo-selector
 subsets:
   - addresses:
-      - ip: 10.244.2.2  #ip address of myapp pod
+      - ip: 10.244.2.51  #ip address of myapp pod
     ports:
       - port: 80  # port number for myapp container
       
-# kubectl apply -f env03.mc-myapp-deploy.yml 실행 후
+# kubectl apply -f env03.nginx-myapp.yml 실행 후
 # 해당 pod의 ip 주소를 endpoint ip 주소로 설정   

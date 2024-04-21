@@ -1,16 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: sts-headless
+  name: svc-headless
 spec:
-  type: ClusterIP
+  # type: ClusterIP
   clusterIP: None
   selector:
     sts: mynginx 
   ports:
-    - name: http
+    - protocol: TCP
       port: 8080
-      protocol: TCP
       targetPort: 80
       
       

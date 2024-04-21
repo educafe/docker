@@ -24,6 +24,6 @@ spec:
       volumes:
       -   name: nginx-proxy-config
           configMap:
-            name: myconfig
+            name: nginx-mp-proxy-config
 
       terminationGracePeriodSeconds: 0
