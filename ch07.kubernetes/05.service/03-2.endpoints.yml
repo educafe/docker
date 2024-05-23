@@ -4,9 +4,7 @@ metadata:
   name: svc-wo-selector
 subsets:
   - addresses:
-      - ip: 192.168.1.6   # ip of one of nodes
-      # - ip: 10.96.1.203   # ip address of service
+      - ip: 192.168.1.6     # ip of external resources
     ports:
-      - port: 30010         # port number of nodeport service
-      # - port: 80              # port number of a service
+      - port: 30010            # port number of a service
       

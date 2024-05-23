@@ -22,10 +22,10 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: sts-headless
+            name: svc-headless
             port:
               number: 80
-      - path: /cluster/?(.*)
+      - path: /cluster/?(.
         pathType: Prefix
         backend:
           service:

@@ -3,7 +3,7 @@ kind: StatefulSet
 metadata:
   name: sts-nginx
 spec:
-  serviceName: "sts-headless"
+  serviceName: "svc-headless"
   selector:
     matchLabels:
       sts: mynginx

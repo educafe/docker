@@ -168,6 +168,9 @@ items:
               command:
                 - /home/weave/launch.sh
               env:
+                - name: IPALLOC_RANGE
+                  value: 10.200.0.0/16              #added by diyoon
+
                 - name: HOSTNAME
                   valueFrom:
                     fieldRef:

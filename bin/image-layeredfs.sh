@@ -9,7 +9,7 @@ do
 				tput setaf 4
 				docker image ls | grep $imageid | awk '{print $1 ":" $2}'
 				echo UpperDir=$image
-				tput setaf 0
+				tput setaf 3
 				IFS=:
 				for var in $(cat /var/lib/docker/overlay2/$image/lower)
 				do
