@@ -6,9 +6,7 @@ do
 	if [[ $dir =~ "-init" ]]; then
 		merged=$(basename $dir)
 		merged=${merged%?????}
-		tput setaf 5
 		echo $merged
-		tput setaf 3
 		IFS=:
 		for var in $(cat /var/lib/docker/overlay2/$merged/lower)
 		do
