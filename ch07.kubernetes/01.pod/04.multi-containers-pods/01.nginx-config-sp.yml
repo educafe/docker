@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-    name: myconfig
+    name: myconfig-sp
 data:
     nginx.conf: |-
 

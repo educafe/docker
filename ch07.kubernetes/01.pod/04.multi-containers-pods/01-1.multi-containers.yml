@@ -3,12 +3,12 @@ kind: Pod
 metadata:
     name: mypod
     labels:
-        app: mc-myapp
+        app: mypod
 spec:
     containers:
     -   name: myapp
         image: educafe/myapp
-    -   name: nginx
+    -   name: mynginx
         image: nginx:alpine
         ports:
         -   containerPort: 80
@@ -19,7 +19,7 @@ spec:
     volumes:
     -   name: nginx-proxy-config
         configMap:
-            name: myconfig
+            name: myconfig-sp
             
     # terminationGracePeriodSeconds: 0
       
