@@ -1,7 +1,0 @@
-Servers:
-	- name: Server1
-	  owner: educafe
-	  created: 220610
-	  status: active
-	  
-	  
