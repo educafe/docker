@@ -8,11 +8,3 @@ docker container run -d --name mynginx --network mybridge --restart=always -p 80
 
 docker-compose.yml 파일을 작성한 후 docker-compose up --build -d 명령으로 한번에 해결하는 예제로
 docker-compose의 필요성과 잇점을 잘 설명할 수 있음
-
-참조 :
---------------------------------------------------------------------------------------------
-Building a Python scalable Flask application using docker-compose and Nginx load balancer
---------------------------------------------------------------------------------------------
-https://www.linkedin.com/pulse/building-python-scalable-flask-application-using-nginx-itay-melamed
-
-nginx.conf 파일에 컨테이너 이름이 myapp이 생성되도록 수정함

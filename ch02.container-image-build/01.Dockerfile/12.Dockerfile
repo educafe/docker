@@ -1,4 +1,6 @@
-FROM mynginx
-ADD index.html /var/www/html/index.html
-ENTRYPOINT ["nginx"]
-CMD ["-g", "daemon off;"]
+FROM ubuntu:24.04
+COPY a.out .
+CMD ["./a.out"]
+STOPSIGNAL SIGINT
+
+

@@ -1,0 +1,46 @@
+version: '3.8'
+name: project1
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - nodejs
+    networks:
+      - mybridge
+
+  nodejs:
+    build: ./nodejs
+    # volumes:
+      # - ./nodejs:/usr/src/app
+    stop_grace_period: 0s
+    expose:
+      - "3000"
+    depends_on:
+      - mysql
+    networks:
+      - mybridge
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: testdb
+      MYSQL_USER: testuser
+      MYSQL_PASSWORD: testpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./mysql:/docker-entrypoint-initdb.d
+    networks:
+      - mybridge
+
+volumes:
+  db_data:
+
+networks:
+  mybridge:

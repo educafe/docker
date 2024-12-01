@@ -4,6 +4,7 @@ services:
   mycontainer:
     build: .
     image: myimage
+    # stop_grace_period: 0s
     deploy:
       replicas: 3
     networks:

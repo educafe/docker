@@ -4,13 +4,15 @@ services:
   myapp:
     build: app
     image: myapp
+    # deploy:
+      # replicas: 2
     networks:
     - mybridge
   nginx:
     build: nginx
     image: mynginx
     ports:
-      - 8080:80
+      - 80:80
     depends_on:
       - myapp
     networks:
