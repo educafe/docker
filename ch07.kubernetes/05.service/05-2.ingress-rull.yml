@@ -14,8 +14,8 @@ spec:
         pathType: Prefix
         backend:
           service:
-            # name: svc-wo-selector
-            name: svc-frontend
+            name: svc-wo-selector
+            # name: svc-frontend
             port:
               number: 80
       - path: /headless/?(.*)
@@ -25,7 +25,7 @@ spec:
             name: svc-headless
             port:
               number: 80
-      - path: /cluster/?(.
+      - path: /cluster/?(.*)
         pathType: Prefix
         backend:
           service:

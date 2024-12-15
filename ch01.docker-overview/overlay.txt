@@ -1,3 +1,3 @@
-mkdir base diff merged work
+mkdir base1 base2 diff merged work
 
-sudo mount -t overlay -o lowerdir=base,upperdir=diff,workdir=work overlay merged
+sudo mount -t overlay -o lowerdir=base1:base2,upperdir=diff,workdir=work overlay merged

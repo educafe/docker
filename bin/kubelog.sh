@@ -11,7 +11,7 @@ elif [ $1 = '-f' ]; then
 	do
 		# for container in $(kubectl get pods -o jsonpath="{.items[*].spec.containers[*].name}")
 		# do
-			kubectl logs -f $pod mycontainer &
+			kubectl logs -f $pod &
 		# done
 	done < <(tail +2 <(kubectl get pods | awk '{print $1}'))
 elif [ $1 = '-c' ]; then
@@ -21,7 +21,7 @@ elif [ $1 = '-c' ]; then
 		do
 			# for container in $(kubectl get pods -o jsonpath="{.items[*].spec.containers[*].name}")
 			# do
-				tail -1 <(kubectl logs $pod mycontainer)
+				tail -1 <(kubectl logs $pod )
 			# done
 		done < <(tail +2 <(kubectl get pods | awk '{print $1}'))
 	echo
