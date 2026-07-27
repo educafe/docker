@@ -1,0 +1,16 @@
+#RSA key pair creation
+#Press Enter key to all prompting questions
+ssh-keygen -t rsa
+
+#Copy public key onto node servers
+#Input 'yes' to prompting questions 
+ssh-copy-id -i ~/.ssh/id_rsa educafe@192.168.56.105
+ssh-copy-id -i ~/.ssh/id_rsa educafe@192.168.56.106
+
+#Verify connection
+ssh educafe@192.168.56.105
+ssh educafe@192.168.56.106
+
+#alias setting in .bashrc file
+alias node01='ssh educafe@192.168.56.105'
+alias node02='ssh educafe@192.168.56.106'

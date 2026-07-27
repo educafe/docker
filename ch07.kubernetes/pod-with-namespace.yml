@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod1 
+  labels:
+    app: myapp
+  namespace: blue
+spec:                            
+  containers:
+    - name: mycontainer 
+      image: educafe/myimage:v1  
+
+  terminationGracePeriodSeconds: 0
+   

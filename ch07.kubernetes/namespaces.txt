@@ -1,0 +1,24 @@
+1) Creating namespace
+---------------------------
+
+kubectl create namespace mynamespace
+kubect get namespaces 
+kubectl delete namespaces mynamespace
+
+kubectl create namespace project1 --dry-run -o yaml > project1-namespace.yml
+kubectl apply -f project1-namespace.yml
+
+2) Configurating default namespace
+--------------------------------------
+
+kubectl config view
+kubectl config set-context mycontext --cluster=kubernetes \
+--user=kubernetes-admin \
+--namespace=mynamespace
+
+kubectl config current-context
+
+3) Switching default namespace to customized namespace
+---------------------------------------------------------
+
+kubectl config use-context mycontext
