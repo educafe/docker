@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx-pod-rs
+  labels:
+    educafe: mypod
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      educafe: test
+  template:
+    metadata:
+      labels:
+        educafe: test
+    spec:
+      containers:
+        - name: mynginx-container
+          image: educafe/mynginx:v1
+         
+         
+
+

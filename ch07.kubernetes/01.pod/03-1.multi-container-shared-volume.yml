@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod4
+  labels:
+    educafe: mypod4
+spec:    
+  containers:
+  - name: read-container
+    image: educafe/myimage:v3
+    volumeMounts:
+    - name: shared
+      mountPath: /app
+  - name: write-container
+    image: educafe/myimage:v2
+    volumeMounts:
+    - name: shared
+      mountPath: /app
+          
+  volumes:
+  - name: shared
+    emptyDir: {}
+    # hostPath: 
+      # path: /home/educafe/
+      
+  terminationGracePeriodSeconds: 0
+   

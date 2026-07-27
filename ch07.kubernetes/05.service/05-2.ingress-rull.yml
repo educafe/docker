@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: myingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: "educafe.example.com"
+    http:
+      paths:
+      - path: /manual/?(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-wo-selector
+            # name: svc-frontend
+            port:
+              number: 80
+      - path: /headless/?(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-headless
+            port:
+              number: 80
+      - path: /cluster/?(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-clusterip
+            port:
+              number: 80

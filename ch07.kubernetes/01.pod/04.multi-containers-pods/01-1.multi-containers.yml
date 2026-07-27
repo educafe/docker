@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: multi-containers
+    labels:
+      educafe: multi-containers
+spec:
+    containers:
+    - name: myapp-container
+      image: educafe/myapp:v1
+    - name: mynginx-container
+      image: educafe/mynginx:v1
+      ports:
+      - containerPort: 80
+      volumeMounts:
+      - name: nginx-proxy-config
+        mountPath: /etc/nginx/nginx.conf
+        subPath: nginx.conf
+    volumes:
+    - name: nginx-proxy-config
+      configMap:
+        name: myconfig-sp
+            
+    # terminationGracePeriodSeconds: 0
+      
+      

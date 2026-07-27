@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-dep
+spec:
+  selector:
+    matchLabels:
+      educafe: mp-myapp
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        educafe: mp-myapp
+    spec:
+      containers:
+      - name: myapp
+        image: educafe/myapp
+        
+      terminationGracePeriodSeconds: 0

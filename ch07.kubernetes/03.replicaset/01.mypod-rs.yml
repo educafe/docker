@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myrs
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      educafe: mypod
+  template:
+    metadata:
+      labels:
+        educafe: mypod 
+    spec:
+      containers:
+        - name: myrs-container
+          image: educafe/myimage:v1
+      terminationGracePeriodSeconds: 10

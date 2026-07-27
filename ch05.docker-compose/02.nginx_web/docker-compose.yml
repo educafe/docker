@@ -1,0 +1,27 @@
+# version: '3.9'
+name: lab
+services:
+  myapp:
+    build: app
+    image: myapp
+    stop_grace_period: 0s
+    deploy:
+      replicas: 2
+    networks:
+    - mybridge
+  nginx:
+    build: nginx
+    image: mynginx
+    stop_grace_period: 0s
+    ports:
+      - 8080:80
+    depends_on:
+      - myapp
+    networks:
+      - mybridge
+    
+networks:
+  mybridge:
+           
+# sudo setcap cap_net_bind_service=+ep "$(command -v rootlesskit)"
+

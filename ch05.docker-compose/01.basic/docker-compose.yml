@@ -1,0 +1,33 @@
+# version: '3.9'
+name: lab
+services:
+  myubuntu:
+    build: myubuntu
+    image: myubuntu
+    tty: true             # docker run -t
+    stdin_open: true      # docker run -i
+    stop_grace_period: 0s
+    networks:
+      mybridge:
+        aliases:
+          - myubuntu
+  mynginx:
+    build: mynginx
+    image: mynginx
+    deploy:
+      replicas: 2
+    stop_grace_period: 0s
+    networks:
+      mybridge:
+        aliases:
+          - mynginx
+networks:
+  mybridge:
+    # driver: bridge
+    # ipam:
+      # config:
+        # - subnet: 192.168.214.0/24
+# volumes:
+  # myvolume:
+           
+           
